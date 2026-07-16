@@ -107,7 +107,7 @@ def translate_label(label_en: str, lang: str) -> str:
             "Goals": "الأهداف",
             "Save Profile": "حفظ الملف الشخصي",
             "Profile Saved": "تم حفظ الملف الشخصي",
-            "Chat with your AI Advisor": "تحدث مع مستشارك AI",
+            "Chat with your AI Advisor": "Riyada AI",
             "Type your message here...": "اكتب رسالتك هنا...",
             "Send": "إرسال",
             "Clear Chat": "مسح المحادثة",
@@ -782,7 +782,7 @@ def render_progress_tracker():
 def render_sidebar():
     """Render the sidebar with entrepreneur profile form and progress tracking."""
     with st.sidebar:
-        st.title("🧑‍💼 AI Entrepreneurship Advisor")
+        st.title("🧑‍💼 Riyada AI")
         st.markdown("---")
 
         # Language selector at the top
@@ -893,7 +893,7 @@ def render_sidebar():
         render_progress_tracker()
 
         st.markdown("---")
-        st.caption("Built with Streamlit + OpenAI")
+        st.caption("Built with Streamlit + OpenRouter")
 
 
 # ── CHAT INTERFACE ───────────────────────────────────────────────────────────
@@ -1063,7 +1063,7 @@ def main():
     """Main entry point for the Streamlit app."""
     # Page config
     st.set_page_config(
-        page_title="AI Entrepreneurship Advisor",
+        page_title="Riyada AI",
         page_icon="🧑‍💼",
         layout="wide",
         initial_sidebar_state="expanded",
