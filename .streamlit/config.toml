@@ -1,0 +1,8 @@
+[tool.streamlit]
+runner.headless = true
+theme.base = "light"
+theme.primaryColor = "#00a67e"
+theme.backgroundColor = "#f8f9fa"
+theme.secondaryBackgroundColor = "#f0f2f6"
+theme.textColor = "#1a1a2e"
+theme.font = "sans serif"
