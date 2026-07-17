@@ -228,14 +228,10 @@ class AIAgent:
                 messages=full_messages,
                 temperature=temperature,
                 max_tokens=2000,
+                extra_body={"reasoning": {"enabled": False}},
             )
             msg = response.choices[0].message
-            # Reasoning models (DeepSeek V4) may return content=None
-            # and put the text in the reasoning field instead
-            content = msg.content
-            if content is None:
-                content = getattr(msg, "reasoning", None) or ""
-            return content
+            return msg.content or ""
         except Exception as e:
             return f"⚠️ Error: {str(e)}"
 
@@ -462,11 +458,10 @@ Entrepreneur Profile:
                 messages=messages,
                 temperature=0.7,
                 max_tokens=2000,
+                extra_body={"reasoning": {"enabled": False}},
             )
             msg = response.choices[0].message
-            content = msg.content
-            if content is None:
-                content = getattr(msg, "reasoning", None) or ""
+            content = msg.content or ""
             # Strip any metadata prefixes the model might add
             content = re.sub(
                 r"^(Current conversation:|User:|Assistant:|\[?\d{1,2}:\d{2}\s*(AM|PM)?\]?\s*)",
@@ -615,11 +610,10 @@ The user is in {location}, UAE, so include UAE-specific resources.
             temperature=0.7,
             max_tokens=2000,
             response_format={"type": "json_object"},
+            extra_body={"reasoning": {"enabled": False}},
         )
         msg = response.choices[0].message
-        content = msg.content
-        if content is None:
-            content = getattr(msg, "reasoning", None) or "{}"
+        content = msg.content or "{}"
         plan = json.loads(content)
         return plan
     except Exception:
