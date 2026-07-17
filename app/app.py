@@ -451,6 +451,8 @@ Entrepreneur Profile:
         # Add conversation history (last 10 messages for context)
         for msg in conversation_history[-10:]:
             messages.append(msg)
+        # Add the user's current question
+        messages.append({"role": "user", "content": user_message})
 
         try:
             response = self.client.chat.completions.create(
