@@ -890,6 +890,11 @@ def render_sidebar():
 
         st.markdown("---")
         st.caption("Built with Streamlit + OpenRouter")
+        st.markdown(
+            '<p style="font-size:0.7rem; text-align:center">'
+            '<a href="https://github.com/robinboustany2011-bit/riyada-ai" target="_blank">GitHub</a></p>',
+            unsafe_allow_html=True,
+        )
 
 
 # ── CHAT INTERFACE ───────────────────────────────────────────────────────────
